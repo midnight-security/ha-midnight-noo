@@ -5,7 +5,7 @@
   "config_flow": false,
   "documentation": "https://github.com/midnight-security/ha-midnight-noo",
   "issue_tracker": "https://github.com/midnight-security/ha-midnight-noo/issues",
+  "iot_class": "cloud_push",
   "requirements": [],
-  "version": "1.0.0",
-  "iot_class": "cloud_push"
+  "version": "1.0.0"
 }
