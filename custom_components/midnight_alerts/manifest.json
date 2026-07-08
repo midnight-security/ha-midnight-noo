@@ -1,5 +1,5 @@
 {
-  "domain": "ha-midnight-noo",
+  "domain": "midnight_alerts",
   "name": "Midnight 911 Integration",
   "codeowners": ["@conryf"],
   "config_flow": false,
@@ -7,5 +7,5 @@
   "issue_tracker": "https://github.com/midnight-security/ha-midnight-noo/issues",
   "requirements": [],
   "version": "1.0.0",
-  "iot_class": "local_polling"
+  "iot_class": "cloud_push"
 }

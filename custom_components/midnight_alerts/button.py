@@ -4,6 +4,7 @@ import aiohttp
 from homeassistant.components.button import ButtonEntity
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import DOMAIN
@@ -26,13 +27,17 @@ class MidnightAlertButton(ButtonEntity):
     _attr_name = "Trigger Alert"
     _attr_icon = "mdi:alert"
 
-    def __init__(self, entry):
-        self._api_key = entry.data.get("api_key")  # We'll add config later
+    def __init__(self, entry: ConfigEntry) -> None:
+        self._api_key = entry.data.get("api_key")
         self._base_url = "https://alerts.midnight.security"
-
-    @property
-    def unique_id(self):
-        return f"{DOMAIN}_trigger_alert"
+        self._attr_unique_id = f"{entry.entry_id}_trigger_alert"
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, entry.entry_id)},
+            name="Midnight 911",
+            manufacturer="Midnight Security",
+            model="Alert System",
+            entry_type=DeviceEntryType.SERVICE,
+        )
 
     async def async_press(self) -> None:
         """Trigger the alert when button is pressed."""

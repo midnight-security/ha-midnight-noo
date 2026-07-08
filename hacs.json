@@ -1,6 +1,9 @@
 {
   "name": "Midnight 911 Integration",
-  "content_type": "integration",
+  "render_readme": true,
+  "country": "US",
+  "homeassistant": "2024.1.0b0",
+	"content_type": "integration",
   "zip_release": true,
-  "filename": "ha-midnight-noo.zip"
+  "filename": "midnight_alerts.zip"
 }
