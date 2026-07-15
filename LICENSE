@@ -161,7 +161,7 @@
       for, acceptance of support, warranty, indemnity, or other liability
       obligations and/or rights consistent with this License. However, in
       accepting such obligations, You may offer such obligations only on
-      Your own behalf and on Your sole responsibility, not on behalf of
+      your own behalf and on Your sole responsibility, not on behalf of
       any other Contributor, and only if You agree to indemnify, defend,
       and hold each Contributor harmless for any liability incurred by,
       or claims asserted against, such Contributor by reason of your
@@ -169,7 +169,18 @@
 
    END OF TERMS AND CONDITIONS
 
-   Copyright 2026 Midnight Security
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format in question. It also is
+      recommended that a file or directory name be given, stating that
+      the copyright applies to it, so a person searching the same file
+      or directory would be able to find the license notice.
+
+   Copyright 2025 Midnight Security Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
