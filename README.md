@@ -67,11 +67,10 @@ automation:
 
 ## Warnings & Disclaimers
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Requires an Internet connection! Home Assistant must have an active internet connection for this to work!
 
-- This integration requires an active internet connection
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit
-- Review the [Midnight Security Terms of Service](#) before use
+NO GUARANTEE
+This integration is provided as-is without warranties of any kind. Using Noonlight with Home Assistant involves multiple service providers and potential points of failure, including (but not limited to) your internet service provider, 3rd party hosting services such as Amazon Web Services, and the Home Assistant software platform. Please read and understand the [Midnight terms of use](https:www.midnight.security/#tou) and [Home Assistant Terms of Service](https://www.home-assistant.io/tos/) both of which include important limitations of liability and indemnification provisions.
 
 ---
 
