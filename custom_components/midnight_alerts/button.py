@@ -29,7 +29,7 @@ class MidnightAlertButton(ButtonEntity):
 
     def __init__(self, entry: ConfigEntry) -> None:
         self._api_key = entry.data.get(CONF_API_KEY)
-        self._base_url = "https://alerts.midnight.security"
+        self._base_url = "https://alerts.midnight.security/api"
         self._attr_unique_id = f"{entry.entry_id}_trigger_alert"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, entry.entry_id)},
