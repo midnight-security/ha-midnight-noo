@@ -7,7 +7,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN
+from .const import DOMAIN, CONF_API_KEY
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -28,7 +28,7 @@ class MidnightAlertButton(ButtonEntity):
     _attr_icon = "mdi:alert"
 
     def __init__(self, entry: ConfigEntry) -> None:
-        self._api_key = entry.data.get("api_key")
+        self._api_key = entry.data.get(CONF_API_KEY)
         self._base_url = "https://alerts.midnight.security"
         self._attr_unique_id = f"{entry.entry_id}_trigger_alert"
         self._attr_device_info = DeviceInfo(
