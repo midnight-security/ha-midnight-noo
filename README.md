@@ -3,7 +3,7 @@
 [![HA and HACS Validate](https://github.com/midnight-security/ha-midnight-noo/actions/workflows/ha_and_hacs_validate.yml/badge.svg)](https://github.com/midnight-security/ha-midnight-noo/actions/workflows/ha_and_hacs_validate.yml)
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+This integration allows users to add a button or automation that results in calling 911. Please use it carefully. HACS is required. 
 
 > **Note:** This integration is currently available in the United States only.
 
@@ -11,9 +11,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 ## How it Works
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+This integration works in partnership with RapidSOS and uses their service to validate 911 calls and reach the associated 911 center. Its VERY IMPORTANT you keep the address updated properly.
 
 ---
 
@@ -21,47 +19,19 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 ### HACS (Recommended)
 
-1. Open HACS in your Home Assistant instance
-2. Go to **Integrations**
-3. Click the **+** button and search for "Midnight 911"
-4. Click **Install**
-5. Restart Home Assistant
+1. Open HACS in your Home Assistant instance ![App Screenshot](img/1.HACS.png)
+2. Click on the three dots menu and choose "Custom Repository" ![App Screenshot](img/2.HACS-Meatball.png)
+3. Enter the url for this repo in the dialog and click Add ![App Screenshot](img/3.HACS-CustomRepo.png)
+4. Now hit cancel on the dialog, the integration should appear in "New" ![App Screenshot](img/4.HACS-New.png)
+5. Click "Download" under the three dot menu. ![App Screenshot](img/5.HACS-Download.png)
+6. The integration should now appear in "Pending Restart" ![App Screenshot](img/6.HACS-Pending.png)
+7. In Settings the restart button should be at the top. ![App Screenshot](img/7.Setting-Restart.png)
+8. After restarting the integration should be available if you search for it from the dashbaord. ![App Screenshot](img/8.Dash-verify.png)
 
 ### Manual
 
 1. Copy the `custom_components/midnight_alerts` folder to your Home Assistant `custom_components` directory
 2. Restart Home Assistant
-
----
-
-## Configuration
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Add the integration via **Settings > Devices & Services > Add Integration** and search for "Midnight 911".
-
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `api_key` | Yes | Your Midnight Security API key |
-
----
-
-## Usage
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Once configured, a **Trigger Alert** button entity will appear in your Home Assistant dashboard.
-
-### Automation Example
-
-```yaml
-automation:
-  - alias: "Lorem ipsum trigger alert"
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.your_sensor
-        to: "on"
-    action:
-      - service: button.press
-        target:
-          entity_id: button.midnight_911_trigger_alert
-```
 
 ---
 
