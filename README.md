@@ -54,6 +54,50 @@ Please read and understand the [Midnight Terms of Service](https:www.midnight.se
 
 ---
 
+## Development
+
+### Branch workflow
+
+- **`develop`** — active development branch
+- **`master`** — production branch; merges here trigger releases
+
+Work happens on `develop`. When ready, open a PR to merge `develop` → `master`.
+
+### Releases & versioning
+
+Releases are automated with [semantic-release](https://github.com/semantic-release/semantic-release) via the [Release](.github/workflows/release.yml) workflow. When a push to `master` includes releasable commits, the workflow:
+
+1. Bumps the version in `package.json` and `custom_components/midnight_alerts/manifest.json`
+2. Builds `midnight_alerts.zip` and attaches it to a GitHub Release (for HACS)
+3. Commits the version bump to **`master`**
+4. Merges **`master`** back into **`develop`** via [`semantic-release-backmerge`](https://github.com/saitho/semantic-release-backmerge)
+
+```
+develop → PR → master → semantic-release → version commit on master → back-merge into develop
+```
+
+To preview the next release locally:
+
+```bash
+yarn install
+yarn semantic-release --dry-run   # must be on master
+```
+
+### Commit messages
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/). The commit prefix determines the version bump:
+
+| Prefix | Version bump | Example |
+|--------|--------------|---------|
+| `fix:` | Patch (`0.4.0` → `0.4.1`) | `fix: handle API timeout` |
+| `feat:` | Minor (`0.4.0` → `0.5.0`) | `feat: add automation trigger` |
+| `feat!:` or `BREAKING CHANGE:` | Major (`0.4.0` → `1.0.0`) | `feat!: change alert payload` |
+| `chore:`, `docs:`, etc. | No release | `docs: update install steps` |
+
+Only commits with `fix:`, `feat:`, or breaking changes trigger a new release.
+
+---
+
 ## License
 
 Copyright 2026 Midnight Security, Inc.
