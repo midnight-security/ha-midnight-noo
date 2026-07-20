@@ -3,15 +3,23 @@
 [![HA and HACS Validate](https://github.com/midnight-security/ha-midnight-noo/actions/workflows/ha_and_hacs_validate.yml/badge.svg)](https://github.com/midnight-security/ha-midnight-noo/actions/workflows/ha_and_hacs_validate.yml)
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 
-This integration allows users to add a button or automation that results in calling 911. Please use it carefully. HACS is required. 
+The Midnight 911 integration for Home Assistant allows anyone to add professional security monitoring to their home.
 
-> **Note:** This integration is currently available in the United States only.
+Users can add either a button or automation that triggers an alert to a US-based security monitoring center. If validated or without response, they will contact your local 911 center on your behalf. So please use it carefully.
+
+HACS is required, currently.
+
+> **Note:** This integration is currently available in the United States only, with plans to expand to Canada.
 
 ---
 
 ## How it Works
 
-This integration works in partnership with RapidSOS and uses their service to validate 911 calls and reach the associated 911 center. Its VERY IMPORTANT you keep the address updated properly.
+
+
+This integration works in partnership with RapidSOS and uses their service to validate 911 calls and reach the associated 911 center.
+
+It's VERY IMPORTANT you keep the address updated properly.
 
 ---
 
@@ -37,16 +45,18 @@ This integration works in partnership with RapidSOS and uses their service to va
 
 ## Warnings & Disclaimers
 
-Requires an Internet connection! Home Assistant must have an active internet connection for this to work!
+Home Assistant must have an active internet connection for the integration to work properly.
 
 NO GUARANTEE
-This integration is provided as-is without warranties of any kind. Using Noonlight with Home Assistant involves multiple service providers and potential points of failure, including (but not limited to) your internet service provider, 3rd party hosting services such as Amazon Web Services, and the Home Assistant software platform. Please read and understand the [Midnight terms of use](https:www.midnight.security/#tou) and [Home Assistant Terms of Service](https://www.home-assistant.io/tos/) both of which include important limitations of liability and indemnification provisions.
+This integration is provided as-is without warranties of any kind. Home Assistant and Midnight both involve multiple service providers and potential points of failure, including (but not limited to) your internet service provider, 3rd party hosting services such as Amazon Web Services, and the Home Assistant software platform.
+
+Please read and understand the [Midnight Terms of Service](https:www.midnight.security/legal) and [Home Assistant Terms of Service](https://www.home-assistant.io/tos/) both of which include important limitations of liability and indemnification provisions.
 
 ---
 
 ## License
 
-Copyright 2026 Midnight Security
+Copyright 2026 Midnight Security, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
