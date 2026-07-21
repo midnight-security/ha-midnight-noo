@@ -1,11 +1,12 @@
 {
   "domain": "midnight_alerts",
-  "name": "Midnight 911 Integration",
-  "codeowners": ["@conryf"],
+  "name": "Midnight 911",
+  "codeowners": ["@midnight-security/midnight-team"],
   "config_flow": true,
-  "documentation": "https://github.com/midnight-security/ha-midnight-noo",
+  "documentation": "https://github.com/midnight-security/midnight-homeassistant-911/blob/master/docs/midnight_alerts.markdown",
+  "integration_type": "service",
   "iot_class": "cloud_push",
-  "issue_tracker": "https://github.com/midnight-security/ha-midnight-noo/issues",
+  "issue_tracker": "https://github.com/midnight-security/midnight-homeassistant-911/issues",
   "requirements": [],
   "version": "0.4.0"
 }
