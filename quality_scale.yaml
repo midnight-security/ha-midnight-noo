@@ -77,8 +77,10 @@ rules:
 
   # Gold
   devices:
-    status: todo
-    comment: Integration does not currently create a device registry entry beyond the button's device_info; needs review.
+    status: done
+    comment: >-
+      button.py already sets device_info with entry_type=DeviceEntryType.SERVICE,
+      which is the documented pattern for a service with no physical hardware.
   diagnostics:
     status: todo
     comment: Not implemented.
