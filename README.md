@@ -98,6 +98,15 @@ Only commits with `fix:`, `feat:`, or breaking changes trigger a new release.
 
 ---
 
+## Third-party code
+
+This project vendors code from [Alarmo](https://github.com/nielsfaber/alarmo)
+(© nielsfaber, Apache-2.0) under `custom_components/midnight_alerts/vendor/alarmo/`.
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for full attribution,
+license, and provenance details.
+
+---
+
 ## License
 
 Copyright 2026 Midnight Security, Inc.
