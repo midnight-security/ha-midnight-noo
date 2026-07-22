@@ -28,10 +28,32 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
+      - name: Capture version before release
+        id: before
+        run: echo "version=$(jq -r .version custom_components/midnight_alerts/manifest.json)" >> "$GITHUB_OUTPUT"
+
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn semantic-release
+
+      - name: Capture version after release
+        id: after
+        run: echo "version=$(jq -r .version custom_components/midnight_alerts/manifest.json)" >> "$GITHUB_OUTPUT"
+
+      # Only fires when semantic-release actually published a new version -
+      # same version source of truth error_reporting.py tags exceptions with.
+      - name: Record Sentry release and deploy
+        if: steps.before.outputs.version != steps.after.outputs.version
+        uses: getsentry/action-release@v3
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        with:
+          environment: production
+          release: ${{ steps.after.outputs.version }}
+          set_commits: auto
 
   build-zip:
     if: github.event_name == 'workflow_dispatch'

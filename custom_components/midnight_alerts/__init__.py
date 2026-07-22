@@ -3,17 +3,22 @@ from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.loader import async_get_integration
 
 from .api import MidnightAlertsApiClient, MidnightAlertsApiError, MidnightAlertsAuthError
-from .const import DOMAIN, CONF_API_KEY
+from .const import CONF_ENABLE_CRASH_REPORTING, DOMAIN, CONF_API_KEY
 
 PLATFORMS = ["button"]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Midnight Alerts."""
+    integration = await async_get_integration(hass, DOMAIN)
     client = MidnightAlertsApiClient(
-        entry.data[CONF_API_KEY], async_get_clientsession(hass)
+        entry.data[CONF_API_KEY],
+        async_get_clientsession(hass),
+        report_errors=entry.options.get(CONF_ENABLE_CRASH_REPORTING, False),
+        release=str(integration.version) if integration.version else None,
     )
 
     try:
