@@ -30,9 +30,9 @@ behind each requirement.
 | `config-flow-test-coverage` | Automated tests cover the config flow | Done — `tests/components/midnight_alerts/test_config_flow.py`, 100% line coverage of `config_flow.py` |
 | `brands` | Branding assets available | **Todo** |
 | `dependency-transparency` | Third-party API code lives in a documented, pinned dependency rather than inline in the integration | **Todo** — see note below |
-| `docs-high-level-description` | Docs describe the product/service at a high level | **Todo** |
-| `docs-installation-instructions` | Step-by-step setup instructions | **Todo** |
-| `docs-removal-instructions` | How to remove the integration | **Todo** |
+| `docs-high-level-description` | Docs describe the product/service at a high level | Done — `docs/midnight_alerts.markdown` |
+| `docs-installation-instructions` | Step-by-step setup instructions | Done — `docs/midnight_alerts.markdown` |
+| `docs-removal-instructions` | How to remove the integration | Done — `docs/midnight_alerts.markdown` |
 | `action-setup` | Service actions registered in `async_setup` | Exempt — no custom service actions |
 | `appropriate-polling` | Sensible polling interval | Exempt — `cloud_push`, not polling |
 | `docs-actions` / `docs-triggers` / `docs-conditions` | Docs for services/triggers/conditions | Exempt — none provided |

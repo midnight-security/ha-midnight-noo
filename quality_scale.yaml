@@ -28,15 +28,9 @@ rules:
   docs-triggers:
     status: exempt
     comment: Integration does not provide triggers.
-  docs-high-level-description:
-    status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
-  docs-installation-instructions:
-    status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
-  docs-removal-instructions:
-    status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-high-level-description: done
+  docs-installation-instructions: done
+  docs-removal-instructions: done
   entity-event-setup:
     status: todo
     comment: >-

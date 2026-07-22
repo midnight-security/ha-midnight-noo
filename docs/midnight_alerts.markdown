@@ -21,11 +21,13 @@ ha_integration_type: service
 > checklist. Front matter fields (`ha_release`, etc.) will need updating at
 > submission time to match whatever's actually true then.
 
-The **Midnight 911** integration adds professional security monitoring to
-your Home Assistant instance. It lets you add a button or automation that
-sends an alert to a US-based security monitoring center. If your alert is
-validated (or goes without a response from you), Midnight will contact your
-local 911 center on your behalf.
+The **Midnight 911** integration connects Home Assistant to
+professional security monitoring services. It lets you add a button or automation that sends an
+alert to Midnight's US-based monitoring center. [Midnight Security](https://www.midnight.security), a  works in
+partnership with [RapidSOS](https://www.rapidsos.com) to validate alerts and
+reach the 911 center associated with your address, contacting local
+emergency services on your behalf if the alert is validated or goes without
+a response from you.
 
 <div class='note warning'>
 
@@ -37,10 +39,10 @@ up to date.
 
 ## Prerequisites
 
-- A Midnight Security account and an API key. Sign up at
-  [midnight.security](https://www.midnight.security) to get one.
-- An active internet connection — Home Assistant must be able to reach
-  Midnight's API for both setup and alert delivery.
+1. Sign up for a [Midnight Security](https://www.midnight.security) account.
+2. Generate an API key from your Midnight Security account.
+3. Make sure Home Assistant has an active internet connection — it must be
+   able to reach Midnight's API for both setup and alert delivery.
 
 {% include integrations/config_flow.md %}
 
@@ -62,6 +64,10 @@ This integration follows standard integration removal. After removing it,
 no further alerts can be sent by Home Assistant until it's re-added.
 
 {% include integrations/remove_device_service.md %}
+
+Removing the integration from Home Assistant does not cancel your Midnight
+Security account or monitoring plan — manage or cancel that separately at
+[midnight.security](https://www.midnight.security).
 
 ## Availability
 
