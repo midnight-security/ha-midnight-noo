@@ -1,0 +1,146 @@
+rules:
+  # Bronze
+  action-setup:
+    status: exempt
+    comment: Integration does not register any service actions.
+  appropriate-polling:
+    status: exempt
+    comment: iot_class is cloud_push; the integration does not poll.
+  brands:
+    status: todo
+    comment: No icon/logo assets exist yet.
+  common-modules:
+    status: todo
+    comment: Only one platform (button) exists today; revisit once more platforms are added.
+  config-flow: done
+  config-flow-test-coverage:
+    status: todo
+    comment: No tests/ directory exists yet.
+  dependency-transparency:
+    status: todo
+    comment: >-
+      API client code lives inline in api.py rather than in a separate,
+      pinned third-party PyPI package. See CORE_INTEGRATION.md.
+  docs-actions:
+    status: exempt
+    comment: Integration does not provide service actions.
+  docs-conditions:
+    status: exempt
+    comment: Integration does not provide conditions.
+  docs-triggers:
+    status: exempt
+    comment: Integration does not provide triggers.
+  docs-high-level-description:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-installation-instructions:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-removal-instructions:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  entity-event-setup:
+    status: todo
+    comment: >-
+      Needs review - the button entity has no push-based state, so this
+      may end up exempt, but not yet confirmed.
+  entity-unique-id: done
+  has-entity-name: done
+  runtime-data:
+    status: todo
+    comment: __init__.py still stores the client in hass.data[DOMAIN].
+  test-before-configure: done
+  test-before-setup: done
+  unique-config-entry: done
+
+  # Silver
+  action-exceptions:
+    status: todo
+    comment: No custom service actions exist yet to raise exceptions from.
+  config-entry-unloading: done
+  docs-configuration-parameters:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-installation-parameters:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  entity-unavailable:
+    status: todo
+    comment: Needs review - button entity availability handling not yet audited.
+  integration-owner: done
+  log-when-unavailable:
+    status: todo
+    comment: Needs review - not yet audited.
+  parallel-updates:
+    status: todo
+    comment: Not yet specified on the button entity/platform.
+  reauthentication-flow:
+    status: todo
+    comment: config_flow.py only implements async_step_user today.
+  test-coverage:
+    status: todo
+    comment: No tests exist yet; blocked on config-flow-test-coverage first.
+
+  # Gold
+  devices:
+    status: todo
+    comment: Integration does not currently create a device registry entry beyond the button's device_info; needs review.
+  diagnostics:
+    status: todo
+    comment: Not implemented.
+  discovery: exempt
+  discovery-update-info: exempt
+  docs-data-update:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-examples:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-known-limitations:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-supported-devices:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-supported-functions:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-troubleshooting:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-use-cases:
+    status: todo
+    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  dynamic-devices: exempt
+  entity-category:
+    status: todo
+    comment: Needs review.
+  entity-device-class:
+    status: todo
+    comment: Needs review - no device_class currently set on the button entity.
+  entity-disabled-by-default: exempt
+  entity-translations:
+    status: todo
+    comment: translations/en.json exists but has not been audited for completeness.
+  exception-translations:
+    status: todo
+    comment: Not implemented.
+  icon-translations:
+    status: todo
+    comment: button.py uses a hardcoded _attr_icon instead of icons.json.
+  reconfiguration-flow:
+    status: todo
+    comment: config_flow.py only implements async_step_user today.
+  repair-issues:
+    status: todo
+    comment: Not implemented.
+  stale-devices: exempt
+
+  # Platinum
+  async-dependency:
+    status: todo
+    comment: Depends on the dependency-transparency PyPI extraction happening first.
+  inject-websession: done
+  strict-typing:
+    status: todo
+    comment: No mypy configuration exists yet.
