@@ -22,8 +22,9 @@ ha_integration_type: service
 > submission time to match whatever's actually true then.
 
 The **Midnight 911** integration connects Home Assistant to
-professional security monitoring services. It lets you add a button or automation that sends an
-alert to Midnight's US-based monitoring center. [Midnight Security](https://www.midnight.security), a  works in
+[Midnight Security](https://www.midnight.security), a professional security
+monitoring service. It lets you add a button or automation that sends an
+alert to Midnight's US-based monitoring center. Midnight works in
 partnership with [RapidSOS](https://www.rapidsos.com) to validate alerts and
 reach the 911 center associated with your address, contacting local
 emergency services on your behalf if the alert is validated or goes without
