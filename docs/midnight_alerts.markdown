@@ -38,6 +38,15 @@ up to date.
 
 </div>
 
+## Use cases
+
+A common setup is wiring the **Trigger Alert** button into an automation
+instead of pressing it directly — for example, triggering it when a
+glass-break or smoke sensor fires and nobody dismisses the automation's
+confirmation prompt within a couple of minutes. This gives you a monitored
+safety net on top of sensors Home Assistant already has, without needing a
+dedicated alarm panel.
+
 ## Prerequisites
 
 1. Sign up for a [Midnight Security](https://www.midnight.security) account.
@@ -58,6 +67,85 @@ During setup you'll be asked for:
 Once configured, the integration provides a **Trigger Alert** button entity.
 Pressing it (directly, or via an automation) sends an alert to Midnight's
 monitoring center for the address on file with your account.
+
+## Supported functions
+
+| Entity | Type | Description |
+| --- | --- | --- |
+| Trigger Alert | Button | Sends an alert to Midnight's monitoring center for the address on your account. This is the integration's only entity. |
+
+## Data updates
+
+This integration is push-only (`cloud_push`) — it never polls Midnight or
+fetches state on a schedule. Pressing **Trigger Alert** (directly or via
+automation) sends a single request to Midnight's API at that moment; there
+is no ongoing background communication otherwise.
+
+## Examples
+
+A typical automation triggers the alert button when a security-relevant
+sensor fires without being acknowledged, for example:
+
+```yaml
+automation:
+  - alias: "Escalate unacknowledged glass break to Midnight"
+    trigger:
+      - trigger: state
+        entity_id: binary_sensor.living_room_glass_break
+        to: "on"
+    condition:
+      - condition: state
+        entity_id: input_boolean.alert_acknowledged
+        state: "off"
+    action:
+      - delay: "00:02:00"
+      - condition: state
+        entity_id: input_boolean.alert_acknowledged
+        state: "off"
+      - action: button.press
+        target:
+          entity_id: button.midnight_911_trigger_alert
+```
+
+<div class='note'>
+
+There isn't yet a published blueprint for this on the community blueprint
+exchange — the YAML above is a starting point to adapt, not a ready-made
+blueprint link.
+
+</div>
+
+## Troubleshooting
+
+### Can't set up the integration
+
+#### Symptom: "Invalid API key"
+
+The config flow shows an `invalid_auth` error.
+
+##### Resolution
+
+Double-check the API key was copied in full from your Midnight Security
+account, with no extra whitespace. If it still fails, generate a new key
+and try again.
+
+#### Symptom: "Failed to connect to Midnight Alerts"
+
+The config flow shows a `cannot_connect` error.
+
+##### Resolution
+
+1. Confirm Home Assistant has an active internet connection.
+2. Check [Midnight Security's status](https://www.midnight.security) for
+   any ongoing service disruption.
+3. Try again after a few minutes.
+
+### Pressing the button doesn't seem to do anything
+
+Check the Home Assistant logs for `custom_components.midnight_alerts` — a
+failed alert logs an error there rather than surfacing a UI notification.
+This is almost always the same connectivity or account issue as above,
+just happening at alert time instead of setup time.
 
 ## Removing the integration
 

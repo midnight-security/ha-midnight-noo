@@ -84,27 +84,20 @@ rules:
     comment: Not implemented.
   discovery: exempt
   discovery-update-info: exempt
-  docs-data-update:
-    status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+  docs-data-update: done
   docs-examples:
     status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
-  docs-known-limitations:
-    status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+    comment: >-
+      docs/midnight_alerts.markdown has an example automation, but the rule
+      wants a linked blueprint on the community exchange, which doesn't
+      exist yet - inline YAML isn't sufficient on its own.
+  docs-known-limitations: done
   docs-supported-devices:
-    status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
-  docs-supported-functions:
-    status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
-  docs-troubleshooting:
-    status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
-  docs-use-cases:
-    status: todo
-    comment: docs/midnight_alerts.markdown is a draft, not yet complete.
+    status: exempt
+    comment: Cloud service integration with no physical devices to support.
+  docs-supported-functions: done
+  docs-troubleshooting: done
+  docs-use-cases: done
   dynamic-devices: exempt
   entity-category:
     status: done
