@@ -107,11 +107,15 @@ rules:
     comment: docs/midnight_alerts.markdown is a draft, not yet complete.
   dynamic-devices: exempt
   entity-category:
-    status: todo
-    comment: Needs review.
+    status: done
+    comment: >-
+      No category set, which is correct: EntityCategory is only CONFIG or
+      DIAGNOSTIC, and the alert button is the integration's primary entity.
   entity-device-class:
-    status: todo
-    comment: Needs review - no device_class currently set on the button entity.
+    status: exempt
+    comment: >-
+      ButtonDeviceClass only has IDENTIFY, RESTART, and UPDATE - none apply
+      to an alert-trigger button.
   entity-disabled-by-default: exempt
   entity-translations:
     status: todo
