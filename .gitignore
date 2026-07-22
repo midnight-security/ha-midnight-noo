@@ -13,3 +13,10 @@ dist/
 # misc
 .DS_Store
 *.log
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/

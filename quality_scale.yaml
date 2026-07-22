@@ -13,9 +13,7 @@ rules:
     status: todo
     comment: Only one platform (button) exists today; revisit once more platforms are added.
   config-flow: done
-  config-flow-test-coverage:
-    status: todo
-    comment: No tests/ directory exists yet.
+  config-flow-test-coverage: done
   dependency-transparency:
     status: todo
     comment: >-
@@ -79,7 +77,9 @@ rules:
     comment: config_flow.py only implements async_step_user today.
   test-coverage:
     status: todo
-    comment: No tests exist yet; blocked on config-flow-test-coverage first.
+    comment: >-
+      Config flow has 100% coverage, but api.py, __init__.py, and button.py
+      are still untested. Needs >95% across all modules.
 
   # Gold
   devices:

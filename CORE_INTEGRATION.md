@@ -27,7 +27,7 @@ behind each requirement.
 | `test-before-configure` | Config flow tests the connection before creating the entry | Done |
 | `test-before-setup` | `async_setup_entry` verifies connectivity before completing setup | Done |
 | `runtime-data` | Use `ConfigEntry.runtime_data`, not `hass.data[DOMAIN]` | **Todo** |
-| `config-flow-test-coverage` | Automated tests cover the config flow | **Todo** — no `tests/` directory exists yet |
+| `config-flow-test-coverage` | Automated tests cover the config flow | Done — `tests/components/midnight_alerts/test_config_flow.py`, 100% line coverage of `config_flow.py` |
 | `brands` | Branding assets available | **Todo** |
 | `dependency-transparency` | Third-party API code lives in a documented, pinned dependency rather than inline in the integration | **Todo** — see note below |
 | `docs-high-level-description` | Docs describe the product/service at a high level | **Todo** |
@@ -59,7 +59,7 @@ and `test-coverage` (Silver), `diagnostics` and `reconfiguration-flow`
 ## Not today — separate coding sessions
 
 - Migrate `__init__.py` to `entry.runtime_data`
-- Build `tests/components/midnight_alerts/` (config flow + API client)
+- Add test coverage for `api.py` / `__init__.py` / `button.py` (config flow is now covered, but the rest of the integration isn't — needed for the Silver `test-coverage` rule)
 - Extract `api.py` into a standalone PyPI package
 - Add `strict-typing` (mypy) once the above lands
 
