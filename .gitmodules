@@ -1,0 +1,3 @@
+[submodule "custom_components/midnight_alerts/vendor/alarmo"]
+	path = custom_components/midnight_alerts/vendor/alarmo
+	url = https://github.com/nielsfaber/alarmo.git

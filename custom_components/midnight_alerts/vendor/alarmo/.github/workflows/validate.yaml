@@ -1,0 +1,38 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  hacs_validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: "actions/checkout@v4"
+
+      - name: HACS validation
+        uses: "hacs/action@main"
+        with:
+          category: "integration"
+
+  pytests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: "actions/checkout@v4"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: latest
+
+      - name: Run Tests
+        run: uv run pytest tests
+
+  formatting_and_linting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/ruff-action@v3

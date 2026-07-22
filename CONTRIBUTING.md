@@ -4,8 +4,14 @@ Thank you for helping improve the Midnight 911 Home Assistant integration.
 
 ## Development setup
 
-1. Clone this repository into your Home Assistant `custom_components` path, or symlink `custom_components/midnight_alerts` into a dev instance.
-2. Restart Home Assistant and add the integration via **Settings → Devices & services**.
+1. Clone this repository **with submodules** (it vendors [Alarmo](https://github.com/nielsfaber/alarmo) as a git submodule under `custom_components/midnight_alerts/vendor/alarmo`):
+   ```bash
+   git clone --recurse-submodules https://github.com/midnight-security/midnight-homeassistant-911.git
+   # already cloned without --recurse-submodules? run:
+   git submodule update --init
+   ```
+2. Symlink `custom_components/midnight_alerts` into a dev Home Assistant instance, or copy it into your `custom_components` path.
+3. Restart Home Assistant and add the integration via **Settings → Devices & services**.
 
 ## Branch workflow
 

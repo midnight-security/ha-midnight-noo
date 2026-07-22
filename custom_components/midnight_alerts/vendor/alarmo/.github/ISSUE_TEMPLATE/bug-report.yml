@@ -1,0 +1,55 @@
+name: Bug report
+description: Create a report to help improve Alarmo
+labels: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the effort to fill in all relevant details.
+        Please make sure to include sufficient information for me to reproduce the issue, otherwise I can't help you.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: "Before opening a bug report, please check the following:"
+      options:
+        - label: I am using the latest version of Alarmo (latest version can be found [here](https://github.com/nielsfaber/alarmo/releases/latest))
+          required: true
+        - label: I checked for similar existing requests (both open and closed) before posting.
+          required: true
+  - type: input
+    id: alarmo-version
+    attributes:
+      label: Alarmo Version
+      description: "Which version of Alarmo are you running? You can see it in the top-right corner in the Alarmo configuration panel in HA."
+      placeholder: "v1.0.0"
+    validations:
+      required: true  
+  - type: input
+    id: hass-version
+    attributes:
+      label: HA Version
+      description: "Which version of HA are you running? You can see under Configuration -> Settings -> Info."
+      placeholder: "2021.1"
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug description
+      description: What happened and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Which steps did you take to see this bug?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: If applicable, provide relevant log output. No need for backticks here.
+      render: shell

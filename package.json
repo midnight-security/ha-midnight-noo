@@ -22,7 +22,7 @@
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "sed -i 's/\"version\": \"[^\"]*\"/\"version\": \"${nextRelease.version}\"/' package.json custom_components/midnight_alerts/manifest.json && cd custom_components/midnight_alerts && zip -r midnight_alerts.zip . -x 'midnight_alerts.zip'"
+          "prepareCmd": "sed -i 's/\"version\": \"[^\"]*\"/\"version\": \"${nextRelease.version}\"/' package.json custom_components/midnight_alerts/manifest.json && cd custom_components/midnight_alerts && zip -r midnight_alerts.zip . -x 'midnight_alerts.zip' -x 'vendor/alarmo/.git*' -x 'vendor/alarmo/tests/*' -x 'vendor/alarmo/screenshots/*' -x 'vendor/alarmo/.github/*' -x 'vendor/alarmo/pyproject.toml' -x 'vendor/alarmo/uv.lock' -x 'vendor/alarmo/.pre-commit-config.yaml' -x 'vendor/alarmo/pytest.ini' -x 'vendor/alarmo/DEVELOPMENT.md' -x 'vendor/alarmo/README.md' -x 'vendor/alarmo/.gitignore' -x 'vendor/alarmo/hacs.json'"
         }
       ],
       [
