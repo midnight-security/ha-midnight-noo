@@ -2,7 +2,7 @@
 node_modules/
 
 # build output
-dist/
+/dist/
 
 # env
 .env
@@ -13,3 +13,11 @@ dist/
 # misc
 .DS_Store
 *.log
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/

@@ -1,7 +1,10 @@
 """API client for Midnight Alerts."""
 import logging
+from typing import Any
 
 from aiohttp import ClientError, ClientSession
+
+from . import error_reporting
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -19,9 +22,18 @@ class MidnightAlertsAuthError(MidnightAlertsApiError):
 class MidnightAlertsApiClient:
     """Client for the Midnight Alerts API."""
 
-    def __init__(self, api_key: str, session: ClientSession) -> None:
+    def __init__(
+        self,
+        api_key: str,
+        session: ClientSession,
+        *,
+        report_errors: bool = False,
+        release: str | None = None,
+    ) -> None:
         self._api_key = api_key
         self._session = session
+        self._report_errors = report_errors
+        self._release = release
 
     async def async_validate(self) -> None:
         """Validate the API key, raising if it is rejected."""
@@ -31,7 +43,7 @@ class MidnightAlertsApiClient:
         """Trigger an alert."""
         await self._async_request("POST", "alerts", json=payload)
 
-    async def _async_request(self, method: str, path: str, **kwargs) -> None:
+    async def _async_request(self, method: str, path: str, **kwargs: Any) -> None:
         url = f"{BASE_URL}/{path}"
         headers = {
             "Authorization": f"Bearer {self._api_key}",
@@ -48,4 +60,19 @@ class MidnightAlertsApiClient:
                         f"{method} {path} failed: {resp.status} {await resp.text()}"
                     )
         except ClientError as err:
-            raise MidnightAlertsApiError(f"Error connecting to API: {err}") from err
+            wrapped = MidnightAlertsApiError(f"Error connecting to API: {err}")
+            error_reporting.report_exception(
+                wrapped,
+                operation=path,
+                enabled=self._report_errors,
+                release=self._release,
+            )
+            raise wrapped from err
+        except MidnightAlertsApiError as err:
+            error_reporting.report_exception(
+                err,
+                operation=path,
+                enabled=self._report_errors,
+                release=self._release,
+            )
+            raise
